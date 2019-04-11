@@ -20,10 +20,10 @@ class pchomeCrawler:
     
     def get_titles(self):
         web = html.fromstring(self.last_result)
-        raw_titles = web.xpath("//div[@class='pic2t pic2t_bg']/a")
+        raw_titles = web.xpath("//div[@class='pic2t pic2t_bg']")
         output = []
         for this_raw_title in raw_titles:
-            title = this_raw_title.xpath('text()')
+            title = this_raw_title.xpath('a//text()')
             output.append(''.join(title))
         return output
         
